@@ -1,0 +1,27 @@
+GET http://localhost:3000/users
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/users/5cbcc61d-36dc-4965-b5d3-611d14676fd5
+
+###
+
+POST http://localhost:3000/users
+
+{
+  "name": "John Doe",
+  "age": 30
+}
+
+###
+
+PUT http://localhost:3000/users/:id
+
+###
+
+PATCH http://localhost:3000/users/:id
+
+###
+
+DELETE http://localhost:3000/users/:id
