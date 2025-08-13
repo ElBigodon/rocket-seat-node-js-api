@@ -30,7 +30,7 @@ Projeto de backend em Node.js com foco em:
 ```mermaid
 flowchart TD
   A[Cliente] --> B[Fastify Server<br/>server.ts]
-  B --> C[Rotas<br/>src/database/routes/*]
+  B --> C[Rotas<br/>src/routes/*]
   C --> D[Validação e Tipagem<br/>zod + fastify-type-provider-zod]
   C --> E[Handlers de Rotas]
   E --> F[Drizzle ORM]
@@ -138,9 +138,9 @@ O serviço do Postgres via Docker Compose (ver `docker-compose.yml`) usa a image
 .
 ├── drizzle/                # Migrações geradas e metadados
 ├── src/
-│   └── database/
-│       ├── schema.ts       # Definição das tabelas (Drizzle)
-│       └── routes/         # Rotas registradas pelo servidor
+│   ├── database/
+│   │   └── schema.ts       # Definição das tabelas (Drizzle)
+│   └── routes/             # Rotas registradas pelo servidor
 ├── server.ts               # Entrada da aplicação (Fastify + plugins)
 ├── docker-compose.yml      # Serviço PostgreSQL (desenvolvimento)
 ├── drizzle.config.ts       # Configuração do Drizzle Kit
