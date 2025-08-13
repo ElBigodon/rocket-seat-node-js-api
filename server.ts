@@ -1,9 +1,9 @@
 import fastify from 'fastify'
-import { serializerCompiler, validatorCompiler, type ZodTypeProvider } from 'fastify-type-provider-zod'
+import { jsonSchemaTransform, serializerCompiler, validatorCompiler, type ZodTypeProvider } from 'fastify-type-provider-zod'
 import fastifySwagger from '@fastify/swagger'
-import { getCourseByIdRoute } from './src/database/routes/get-course-by-id.ts'
-import { getCoursesRoute } from './src/database/routes/get-courses.ts'
-import { postCourseRoute } from './src/database/routes/post-course.ts'
+import { getCourseByIdRoute } from './src/routes/get-course-by-id.ts'
+import { getCoursesRoute } from './src/routes/get-courses.ts'
+import { postCourseRoute } from './src/routes/post-course.ts'
 
 const server = fastify({
   logger: {
@@ -28,6 +28,7 @@ if (process.env.NODE_ENV === 'development') {
         version: '1.0.0',
       },
     },
+    transform: jsonSchemaTransform,
   })
 
   server.register(import('@scalar/fastify-api-reference'), {
