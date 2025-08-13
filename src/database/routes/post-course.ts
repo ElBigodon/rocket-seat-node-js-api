@@ -1,0 +1,35 @@
+import z from "zod"
+import { db } from "../client.ts"
+import { courses } from "../schema.ts"
+import crypto from "node:crypto"
+import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
+
+export const postCourseRoute: FastifyPluginAsyncZod = async (server) => {
+  server.post('/courses', {
+    schema: {
+      tags: ['Courses'],
+      summary: 'Create a new course',
+      body: z.object({
+        title: z.string().min(5, 'title must have at least 5 characters'),
+        description: z.string(),
+      }),
+      response: {
+        201: z.object({
+          result: z.uuid(),
+        })
+      }
+    },
+  }, async (req, res) => {
+    const body = req.body
+     
+    const newId = crypto.randomUUID()
+  
+    const result: { id: string }[] = await db.insert(courses).values({ 
+      id: newId,
+      title: body.title,
+      description: body.description
+    }).returning({ id: courses.id })
+    
+    return res.status(201).send({ result: result[0].id })
+  });
+}

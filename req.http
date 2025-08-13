@@ -1,27 +1,27 @@
-GET http://localhost:3000/users
+GET http://localhost:3000/courses
+
+###
+
+GET http://localhost:3000/courses/661ee891-99bd-4d60-a192-0bfc290d7e4c
+
+###
+
+POST http://localhost:3000/courses
 Content-Type: application/json
 
-###
-
-GET http://localhost:3000/users/5cbcc61d-36dc-4965-b5d3-611d14676fd5
-
-###
-
-POST http://localhost:3000/users
-
 {
-  "name": "John Doe",
-  "age": 30
+  "title": "Docker",
+  "description": "Curso de docker"
 }
 
 ###
 
-PUT http://localhost:3000/users/:id
+PUT http://localhost:3000/courses/:id
 
 ###
 
-PATCH http://localhost:3000/users/:id
+PATCH http://localhost:3000/courses/:id
 
 ###
 
-DELETE http://localhost:3000/users/:id
+DELETE http://localhost:3000/courses/:id
