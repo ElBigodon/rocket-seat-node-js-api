@@ -1,6 +1,6 @@
 import z from "zod"
-import { db } from "../client.ts"
-import { courses } from "../schema.ts"
+import { db } from "../database/client.ts"
+import { courses } from "../database/schema.ts"
 import crypto from "node:crypto"
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
 
