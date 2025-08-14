@@ -4,6 +4,9 @@ import fastifySwagger from '@fastify/swagger'
 import { getCourseByIdRoute } from './routes/get-course-by-id.ts'
 import { getCoursesRoute } from './routes/get-courses.ts'
 import { postCourseRoute } from './routes/create-course.ts'
+import { loginRoute } from './routes/login.ts'
+
+import './@types/fastify.d.ts'
 
 const server = fastify({
   logger: {
@@ -39,5 +42,6 @@ if (process.env.NODE_ENV === 'development') {
 server.register(getCourseByIdRoute)
 server.register(getCoursesRoute)
 server.register(postCourseRoute)
+server.register(loginRoute)
 
 export { server }

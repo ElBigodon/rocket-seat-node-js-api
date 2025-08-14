@@ -2,12 +2,14 @@ GET http://localhost:3000/courses
 
 ###
 
-GET http://localhost:3000/courses/373ddee2-ebc3-41d4-8fac-dabd8c4e14cc
+GET http://localhost:3000/courses/33f44860-727b-49dd-93d0-9fb018fc01ef
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwNjUwYjM1Zi1lZTkzLTQzMzMtOGNiNy1lNmRkM2U0ZTBhY2YiLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc1NTIxNDA2MiwiZXhwIjoxNzU1MzAwNDYyfQ.pbVF2AIgXaGX1Ag-KFS9mqeDTCw6Ikjv99LdZ-E3bmM
 
 ###
 
 POST http://localhost:3000/courses
 Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwNjUwYjM1Zi1lZTkzLTQzMzMtOGNiNy1lNmRkM2U0ZTBhY2YiLCJyb2xlIjoibWFuYWdlciIsImlhdCI6MTc1NTIxNDAwMiwiZXhwIjoxNzU1MzAwNDAyfQ.pxNSZaosCybW2RfDqT6ZdsaceH917zrW6ObOUus-bAM
 
 {
   "title": "javaScript",
@@ -25,3 +27,13 @@ PATCH http://localhost:3000/courses/:id
 ###
 
 DELETE http://localhost:3000/courses/:id
+
+###
+
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "Joana80@bol.com.br",
+  "password": "123456"
+}

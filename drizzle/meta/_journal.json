@@ -36,6 +36,34 @@
       "when": 1755126266723,
       "tag": "0004_daffy_wendell_vaughn",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1755209805472,
+      "tag": "0005_wide_shiva",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1755209843896,
+      "tag": "0006_misty_aaron_stack",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1755209859522,
+      "tag": "0007_blue_squadron_supreme",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1755210017926,
+      "tag": "0008_perfect_the_spike",
+      "breakpoints": true
     }
   ]
 }
