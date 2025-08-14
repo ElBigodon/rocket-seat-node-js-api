@@ -1,9 +1,9 @@
 import fastify from 'fastify'
 import { jsonSchemaTransform, serializerCompiler, validatorCompiler, type ZodTypeProvider } from 'fastify-type-provider-zod'
 import fastifySwagger from '@fastify/swagger'
-import { getCourseByIdRoute } from './src/routes/get-course-by-id.ts'
-import { getCoursesRoute } from './src/routes/get-courses.ts'
-import { postCourseRoute } from './src/routes/post-course.ts'
+import { getCourseByIdRoute } from './routes/get-course-by-id.ts'
+import { getCoursesRoute } from './routes/get-courses.ts'
+import { postCourseRoute } from './routes/create-course.ts'
 
 const server = fastify({
   logger: {
@@ -40,4 +40,4 @@ server.register(getCourseByIdRoute)
 server.register(getCoursesRoute)
 server.register(postCourseRoute)
 
-server.listen({ port: 3000 }).then(() => console.log('Server running on port 3000'))
+export { server }

@@ -15,6 +15,27 @@
       "when": 1755039798352,
       "tag": "0001_talented_warstar",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1755125055896,
+      "tag": "0002_nosy_human_robot",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1755125151582,
+      "tag": "0003_rare_norrin_radd",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1755126266723,
+      "tag": "0004_daffy_wendell_vaughn",
+      "breakpoints": true
     }
   ]
 }

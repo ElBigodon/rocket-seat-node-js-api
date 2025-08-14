@@ -2,7 +2,7 @@ GET http://localhost:3000/courses
 
 ###
 
-GET http://localhost:3000/courses/661ee891-99bd-4d60-a192-0bfc290d7e4c
+GET http://localhost:3000/courses/373ddee2-ebc3-41d4-8fac-dabd8c4e14cc
 
 ###
 
@@ -10,8 +10,8 @@ POST http://localhost:3000/courses
 Content-Type: application/json
 
 {
-  "title": "Docker",
-  "description": "Curso de docker"
+  "title": "javaScript",
+  "description": "Curso de javaScript"
 }
 
 ###

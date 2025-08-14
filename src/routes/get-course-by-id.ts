@@ -29,29 +29,19 @@ export const getCourseByIdRoute: FastifyPluginAsyncZod = async (server) => {
     },
   }, async (req, res) => {
     const params = req.params
-    
-    if ('id' in params === false || typeof params.id !== 'string') {
-      res.status(400)
-      
-      return {
-        result: 'course id is required'
-      }
-    }
-    
+
     const course = await db.select({
       title: courses.title,
       description: courses.description
     })
       .from(courses)
       .where(eq(courses.id, params.id))
-  
-    if (!course) {
-      res.status(404);
-      
-      return { result: 'not found' }
+
+    if (course.length === 0) {
+      return res.status(404).send({ result: 'not found' });
     }
   
-    return { result: course[0] }
+    return res.status(200).send({ result: course[0] })
   })
     
 }
