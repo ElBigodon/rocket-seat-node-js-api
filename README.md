@@ -10,6 +10,7 @@ API REST construída em Node.js com TypeScript, Fastify e Drizzle ORM, utilizand
 - [Configuração do ambiente](#configuração-do-ambiente)
 - [Como executar](#como-executar)
 - [Scripts disponíveis](#scripts-disponíveis)
+- [Testes e cobertura](#testes-e-cobertura)
 - [Banco de dados e migrações](#banco-de-dados-e-migrações)
 - [Documentação da API](#documentação-da-api)
 - [Estrutura de pastas](#estrutura-de-pastas)
@@ -99,11 +100,32 @@ Conforme `package.json`:
 - __db:generate__: gera migrações com o `drizzle-kit` a partir do schema em `src/database/schema.ts`.
 - __db:migrate__: aplica as migrações para o banco configurado em `DATABASE_URL`.
 - __db:studio__: abre o Drizzle Studio para inspeção do schema/dados.
+- __db:seed__: popula dados de desenvolvimento a partir de `src/database/seed.ts` usando `.env`.
+- __test__: executa os testes com Vitest e coleta cobertura (`vitest run --coverage`) em ambiente `.env.test`.
 
 Execute com:
 
 ```bash
 npm run <script>
+```
+
+## Testes e cobertura
+
+- __Runner__: `vitest` com provider de cobertura `@vitest/coverage-v8`.
+- __Banco de testes__: o script `pretest` executa `drizzle-kit migrate` usando `.env.test` antes dos testes.
+- __Cobertura__: ao rodar `npm test`, um relatório é gerado (texto no terminal e HTML em `coverage/`).
+
+Exemplo de `.env.test`:
+
+```env
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/desafio_test
+```
+
+Comandos úteis:
+
+```bash
+npm test                 # roda testes + coverage
+dotenv -e .env.test vitest --ui   # modo interativo (opcional)
 ```
 
 ## Banco de dados e migrações
