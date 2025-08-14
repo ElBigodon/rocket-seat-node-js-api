@@ -1,4 +1,15 @@
 services:
+  app: 
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/desafio
   db:
     image: postgres:17
     restart: always
