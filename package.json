@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "node --env-file .env --watch --experimental-strip-types src/app.ts",
+    "dev": "node --env-file .env --watch --experimental-strip-types src/server.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
