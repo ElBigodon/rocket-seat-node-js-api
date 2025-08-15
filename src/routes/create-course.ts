@@ -3,9 +3,15 @@ import { db } from "../database/client.ts"
 import { courses } from "../database/schema.ts"
 import crypto from "node:crypto"
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod"
+import { checkUserRole } from "./hooks/check-user-role.ts"
+import { checkUserToken } from "./hooks/check-user-token.ts"
 
 export const postCourseRoute: FastifyPluginAsyncZod = async (server) => {
   server.post('/courses', {
+    preHandler: [
+      checkUserToken,
+      checkUserRole('manager')
+    ],
     schema: {
       tags: ['Courses'],
       summary: 'Create a new course',
