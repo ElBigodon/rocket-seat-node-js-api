@@ -12,7 +12,6 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV=production
 
-
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
@@ -22,7 +21,8 @@ RUN apt-get update -qq && \
 
 # Install node modules
 COPY --link package.json package-lock.json ./
-RUN npm ci --omit dev 
+
+RUN npm ci --omit dev
 
 # Copy application code
 COPY --link . .
@@ -34,4 +34,4 @@ FROM base
 COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]
