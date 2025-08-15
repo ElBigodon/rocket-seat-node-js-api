@@ -8,6 +8,7 @@ services:
     depends_on:
       - db
     environment:
+      - JWT_SECRET=secret
       - NODE_ENV=production
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/desafio
   db:
