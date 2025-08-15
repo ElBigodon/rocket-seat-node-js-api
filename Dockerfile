@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:1
 
 # Adjust NODE_VERSION as desired
-ARG NODE_VERSION=18.16.0
+ARG NODE_VERSION=22.14.0
 FROM node:${NODE_VERSION}-slim as base
 
 LABEL fly_launch_runtime="NodeJS"
@@ -22,14 +22,10 @@ RUN apt-get update -qq && \
 
 # Install node modules
 COPY --link package.json package-lock.json .
-RUN npm install --production=false
+RUN npm ci --omit dev 
 
 # Copy application code
 COPY --link . .
-
-# Remove development dependencies
-RUN npm prune --production
-
 
 # Final stage for app image
 FROM base
@@ -38,4 +34,4 @@ FROM base
 COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
-CMD [ "npm", "run", "start" ]
+CMD ["npm", "run", "dev"]
